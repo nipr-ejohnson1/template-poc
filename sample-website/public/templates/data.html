@@ -10,7 +10,9 @@
 </head>
 <body>
   {<content}
-  <pre>{@debug/}</pre>
+    {@query sort="title" skip="0" limit="5" type="license:class"}
+      <pre>@queryOne {title}</pre>
+    {/query}
   {/content}
 </body>
 </html>
