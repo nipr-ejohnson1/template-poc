@@ -1,55 +1,232 @@
 <!doctype html>
-<html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
+  <title>CloudCMS Tech Demo | N*DEV</title>
   <style>
-  @keyframes gradientAnim {
-  0% {
-    background-position: -5% 0;
+  body { font-family: georgia, "times new roman", serif; font-size: 22px; }
+  h1, h2, p { text-align: center; }
+  
+  .blobs {
+    -webkit-filter: url("#goo");
+            filter: url("#goo");
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
-  100% {
-    background-position: 105% 0;
+  
+  @-webkit-keyframes blob-left-top-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(-65px, 0);
+              transform: scale(0.9) translate(-65px, 0);
+    }
+    62% {
+      -webkit-transform: scale(0.7) translate(-65px, -65px);
+              transform: scale(0.7) translate(-65px, -65px);
+    }
+    94% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
   }
-}
-* {
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f23064;
-  /* Old browsers */
-  background-image: -moz-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
-  /* FF3.6-15 */
-  background-image: -webkit-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 85.5%, #ce8027 87.5%, #f23064 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background-image: linear-gradient(to right, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background-repeat: no-repeat;
-  background-size: 2000% 400%;
-  background-position: 0 0;
-  animation-name: gradientAnim;
-  animation-iteration-count: infinite;
-  animation-delay: 0;
-  animation-duration: 60s;
-  animation-timing-function: linear;
-}
-
-h1 {
-  color: #fff;
-  font-family: 'Segoe UI', 'San Franscisco', Calibri, Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: calc(100% + 5vmax);
-}
-
+  
+  @keyframes blob-left-top-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(-65px, 0);
+              transform: scale(0.9) translate(-65px, 0);
+    }
+    62% {
+      -webkit-transform: scale(0.7) translate(-65px, -65px);
+              transform: scale(0.7) translate(-65px, -65px);
+    }
+    94% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @-webkit-keyframes blob-right-top-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(65px, 0);
+              transform: scale(0.9) translate(65px, 0);
+    }
+    64% {
+      -webkit-transform: scale(0.7) translate(65px, -65px);
+              transform: scale(0.7) translate(65px, -65px);
+    }
+    96% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @keyframes blob-right-top-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(65px, 0);
+              transform: scale(0.9) translate(65px, 0);
+    }
+    64% {
+      -webkit-transform: scale(0.7) translate(65px, -65px);
+              transform: scale(0.7) translate(65px, -65px);
+    }
+    96% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @-webkit-keyframes blob-left-bottom-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(-65px, 0);
+              transform: scale(0.9) translate(-65px, 0);
+    }
+    66% {
+      -webkit-transform: scale(0.7) translate(-65px, 65px);
+              transform: scale(0.7) translate(-65px, 65px);
+    }
+    98% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @keyframes blob-left-bottom-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(-65px, 0);
+              transform: scale(0.9) translate(-65px, 0);
+    }
+    66% {
+      -webkit-transform: scale(0.7) translate(-65px, 65px);
+              transform: scale(0.7) translate(-65px, 65px);
+    }
+    98% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @-webkit-keyframes blob-right-bottom-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(65px, 0);
+              transform: scale(0.9) translate(65px, 0);
+    }
+    68% {
+      -webkit-transform: scale(0.7) translate(65px, 65px);
+              transform: scale(0.7) translate(65px, 65px);
+    }
+    100% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  @keyframes blob-right-bottom-anim {
+    0% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+    33% {
+      -webkit-transform: scale(0.9) translate(65px, 0);
+              transform: scale(0.9) translate(65px, 0);
+    }
+    68% {
+      -webkit-transform: scale(0.7) translate(65px, 65px);
+              transform: scale(0.7) translate(65px, 65px);
+    }
+    100% {
+      -webkit-transform: scale(1.1) translate(0, 0);
+              transform: scale(1.1) translate(0, 0);
+    }
+  }
+  .blob {
+    position: absolute;
+    background: #003b6d;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    border-radius: 100%;
+    margin-top: -50px;
+    margin-left: -50px;
+    -webkit-animation: blob-left-top-anim cubic-bezier(0.77, 0, 0.175, 1) 4s infinite;
+            animation: blob-left-top-anim cubic-bezier(0.77, 0, 0.175, 1) 4s infinite;
+  }
+  .blob:nth-child(2) {
+    -webkit-animation-name: blob-right-top-anim;
+            animation-name: blob-right-top-anim;
+  }
+  .blob:nth-child(3) {
+    -webkit-animation-name: blob-left-bottom-anim;
+            animation-name: blob-left-bottom-anim;
+  }
+  .blob:nth-child(4) {
+    -webkit-animation-name: blob-right-bottom-anim;
+            animation-name: blob-right-bottom-anim;
+  }
   </style>
 </head>
 <body>
-  <h1>AH HA! Content with an update!</h1>
+  <div class="header">
+    <h1>N*Dev Tech Demo</h1>
+    <h2>for CloudCMS</h2>
+  </div>
+
+  <p>
+    A tech proof of concept for CloudCMS
+  </p>
+  <p>
+    View <a href="/data.html">template with data retrieval</a>
+  </p>
+  
+  <div class="blobs">
+    <div class="blob">N*</div>
+    <div class="blob">D</div>
+    <div class="blob">E</div>
+    <div class="blob">V</div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+  
+  <pre>{@debug/}</pre>
 </body>
 </html>
