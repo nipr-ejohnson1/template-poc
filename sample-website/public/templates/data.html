@@ -15,7 +15,13 @@
     <p>License Classes:</p>
     
     {#statePage.primaryRules}
-    <li>{.response} {.question.title}</li>
+    <li>
+      {?.response}
+      Enabled
+      {:else}
+      Disabled
+      {/.response} &mdash; {.question.title}
+    </li>
     {/statePage.primaryRules}
     
   {/queryOne}
