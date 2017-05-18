@@ -9,11 +9,27 @@
   <title>CloudCMS Tech Demo | N*DEV</title>
 </head>
 <body>
-    <p>Request: {JSON.toString(request)}</p>
-    {@query sort="title" skip="0" limit="5" type="license:class"}
-      {#rows}
-      <pre>{title}</pre>
-      {/rows}
-    {/query}
+  {@queryOne field="_doc" fieldValue="40797ab66f9cdaddf01c" as="statePage"}
+    {statePage.title}
+    
+    <p>License Classes:</p>
+    {@iter obj=statePage.primaryRules}
+    {@if cond="\"{$value.response}\" == true}
+        <li>ALLOWED &mdash; {$value.question.title}</li>
+    {/if}
+    {@if cond="\"{$value.response}\" == false}
+        <li>NOT ALLOWED &mdash; {$value.question.title}</li>
+    {/if}
+    {/iter}
+    
+  {/queryOne}
+  
+  {@query sort="title" skip="0" limit="5" type="license:class"}
+  <ul>
+    {#rows}
+    <li>{title}</li>
+    {/rows}
+  </ul>
+  {/query}
 </body>
 </html>
