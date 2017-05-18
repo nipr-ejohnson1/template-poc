@@ -10,9 +10,9 @@
 </head>
 <body>
   {@queryOne field="_doc" fieldValue="40797ab66f9cdaddf01c" as="statePage"}
-    {statePage.title}
+    <h1>{statePage.title}</h1>
     
-    <p>License Classes:</p>
+    <h2>Primary Rules</h2>
     
     {#statePage.primaryRules}
     <li>
@@ -24,14 +24,23 @@
     </li>
     {/statePage.primaryRules}
     
+    <h2>License Classes</h2>
+    {#statePage.licenseClasses}
+    <li>
+      {?.response}
+      Allowed
+      {:else}
+      Not Allowed
+      {/.response} &mdash; {.question.title}
+    </li>
+    {/statePage.primaryRules}
+    
+    <h2>Printing</h2>
+    <p>{statePage.licensePrinting}</p>
+    
+    <h2>Contact</h2>
+    <p>{statePage.contacts}</p>
+    
   {/queryOne}
-  
-  {@query sort="title" skip="0" limit="5" type="license:class"}
-  <ul>
-    {#rows}
-    <li>{title}</li>
-    {/rows}
-  </ul>
-  {/query}
 </body>
 </html>
