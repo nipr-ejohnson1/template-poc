@@ -13,14 +13,10 @@
     {statePage.title}
     
     <p>License Classes:</p>
-    {@iter obj=statePage.primaryRules}
-    {@if cond="\"{$value.response}\" == true}
-        <li>ALLOWED &mdash; {$value.question.title}</li>
-    {/if}
-    {@if cond="\"{$value.response}\" == false}
-        <li>NOT ALLOWED &mdash; {$value.question.title}</li>
-    {/if}
-    {/iter}
+    
+    {#statePage.primaryRules}
+    <li>{.response} {.question.title}</li>
+    {/statePage.primaryRules}
     
   {/queryOne}
   
