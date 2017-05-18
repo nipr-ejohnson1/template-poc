@@ -9,13 +9,11 @@
   <title>CloudCMS Tech Demo | N*DEV</title>
 </head>
 <body>
-  {<content}
     <p>Request: {request}</p>
     {@query sort="title" skip="0" limit="5" type="license:class"}
       {#rows}
       <pre>@queryOne {title}</pre>
       {/rows}
     {/query}
-  {/content}
 </body>
 </html>
