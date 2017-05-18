@@ -26,12 +26,7 @@
     
     <h2>License Classes</h2>
     {#statePage.licenseClasses}
-    <li>
-      {?.response}
-      Allowed
-      {:else}
-      Not Allowed
-      {/.response} &mdash; {.question.title}
+    <li>{.question.title}
     </li>
     {/statePage.primaryRules}
     
