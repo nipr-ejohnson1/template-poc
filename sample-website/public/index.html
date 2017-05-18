@@ -9,11 +9,16 @@
   <title>CloudCMS Tech Demo | N*DEV</title>
   <style>
   body { font-family: georgia, "times new roman", serif; font-size: 22px; }
-  h1, h2, p { text-align: center; }
+  h1, h2, p { text-align: center; z-index: 10; }
   
   .blobs {
     -webkit-filter: url("#goo");
             filter: url("#goo");
+    position: absolute;
+    top: 12em;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
   
   @-webkit-keyframes blob-left-top-anim {
