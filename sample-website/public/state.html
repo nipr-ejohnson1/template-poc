@@ -1,0 +1,49 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <style>
+    body { font-family: georgia, "times new roman", serif; font-size: 22px; }
+    h1, h2, p { text-align: center; z-index: 10; }
+  </style>
+</head>
+<body>
+  {@queryOne type="rules:statePage" field="_doc" fieldValue="{request.qs.id}" as="statePage"}
+    <h1>{statePage.title}</h1>
+    
+    <h2>Primary Rules</h2>
+    
+    {#statePage.primaryRules}
+    <li>
+      {?.response}
+      Enabled
+      {:else}
+      Disabled
+      {/.response} &mdash; {.question.title}
+    </li>
+    {/statePage.primaryRules}
+    
+    <h2>License Classes</h2>
+    {#statePage.licenseClasses}
+    <li>
+      {?.response}
+      Allowed
+      {:else}
+      Not Allowed
+      {/.response} &mdash; {.question.title}
+    </li>
+    {/statePage.licenseClasses}
+    
+    <h2>Printing</h2>
+    <p>{statePage.licensePrinting}</p>
+    
+    <h2>Contact</h2>
+    <p>{statePage.contacts}</p>
+    
+  {/queryOne}
+</body>
+</html>
