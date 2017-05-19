@@ -7,11 +7,15 @@
 <!--<![endif]-->
 <head>
   <style>
-    body { font-family: georgia, "times new roman", serif; font-size: 22px; }
-    h1, h2, p { text-align: center; z-index: 10; }
+    body { font-family: georgia, "times new roman", serif; font-size: 22px; margin: 2em 30px; }
+    h1, h2 { text-align: center; }
+    ul { list-style: none; }
   </style>
 </head>
 <body>
+  <p>
+    <a href="/">&larr; Return home</a>
+  </p>
   {@queryOne type="rules:statePage" field="_doc" fieldValue="{request.qs.id}" as="statePage"}
     <h1>{statePage.title}</h1>
     
