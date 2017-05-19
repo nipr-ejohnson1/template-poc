@@ -210,6 +210,15 @@
     View <a href="/templates/data.html">template with data retrieval</a>
   </p>
   
+  {@query sort="title" skip="0" type="rules:statePage"}
+  <ul>
+    {#rows}
+    <li><a href="/state.html?id={_doc}">{title}</a></li>
+    {/rows}
+  </ul>
+  {/query}
+  
+  <!-- 
   <div class="blobs">
     <div class="blob">N*</div>
     <div class="blob">D</div>
@@ -225,6 +234,6 @@
         <feBlend in="SourceGraphic" in2="goo" />
       </filter>
     </defs>
-  </svg>
+  </svg> -->
 </body>
 </html>
